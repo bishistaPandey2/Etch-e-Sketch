@@ -13,3 +13,23 @@ for(let i = 0; i<n; i++){
     container.append(rowDiv)
 }
 
+const squareDivs = document.querySelectorAll('[class*="square-"]');
+
+squareDivs.forEach((square) => {
+        let isclicked = false;
+
+        square.addEventListener('mouseenter', (event) => event.target.style.backgroundColor="green");
+
+        square.addEventListener('mouseleave', (event) => {
+             if(!isclicked){
+                event.target.style.backgroundColor="white"
+            }
+        })
+           
+        square.addEventListener('click',(event) => {
+            isclicked = true;
+            event.target.style.backgroundColor="green"
+        });
+    }
+);
+
