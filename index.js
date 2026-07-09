@@ -29,15 +29,23 @@ function defaultCanvas(){
     colorSquares()
 }
 
+let dimensionBackup;
 //Canvas creator after clicking button
 function userRequiredCanvasSize(){
     isCanvasCreated = true
 
     canvasContainer.innerHTML = ''
-    container.removeChild(canvasContainer)
     
+  
     let n = prompt("enter dimension of canvas.")
-        for(let i = 0; i<n; i++){
+    if(n==='' && !dimensionBackup){
+        defaultCanvas()
+    }
+    if(n === '' && dimensionBackup){
+        n = dimensionBackup
+    }
+
+    for(let i = 0; i<n; i++){
         const rowDiv = document.createElement("div")
         rowDiv.classList.add("grid-row")
             for(let j=0; j<n; j++){
@@ -48,6 +56,7 @@ function userRequiredCanvasSize(){
         canvasContainer.appendChild(rowDiv)
         container.appendChild(canvasContainer)
     }
+    dimensionBackup = n
     colorSquares()
 }
 
