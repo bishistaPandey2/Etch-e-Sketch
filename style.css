@@ -19,6 +19,14 @@ body{
     display: flex;
 }
 
+.generate-canvas{
+    margin-bottom: 18px;
+    padding: 23px;
+    font-size: 25px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+}
 [class*="square-"]{
     background-color: #ffff;
     height: 16px;
