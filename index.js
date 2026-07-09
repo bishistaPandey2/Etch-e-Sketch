@@ -1,18 +1,17 @@
 
 //Get container = stand for canvas
-const container = document.querySelector(".container")
+const canvas_stand = document.querySelector(".canvas-stand")
 
 // Get actual canvas
 const canvasContainer = document.createElement("div")
 canvasContainer.classList.add("working-canvas")
 
 
-//Button to generate canvas
-const button = document.createElement("button")
-button.addEventListener('click', userRequiredCanvasSize)
-button.innerText = "Generate Canvas";
-button.classList.add('generate-canvas')
-container.append(button)
+//Get button from html.
+const generateCanvasButton = document.querySelector(".generate-canvas")
+const resetCanvasButton = document.querySelector(".reset-canvas")
+generateCanvasButton.addEventListener('click', userRequiredCanvasSize)
+resetCanvasButton.addEventListener('click', defaultCanvas)
 
 
 //To check if canvas is created or not
@@ -20,6 +19,7 @@ let isCanvasCreated = false
 
 //Default canvas
 function defaultCanvas(){
+    canvasContainer.innerHTML = '';
     let n = 35;
     for(let i = 0; i<n; i++){
         const rowDiv = document.createElement("div")
@@ -30,7 +30,7 @@ function defaultCanvas(){
                 rowDiv.append(squareDiv)
             }
         canvasContainer.appendChild(rowDiv)
-        container.appendChild(canvasContainer)
+        canvas_stand.insertAdjacentElement("beforeend",canvasContainer)
     }
     colorSquares()
 }
@@ -60,7 +60,7 @@ function userRequiredCanvasSize(){
                 rowDiv.append(squareDiv)
             }
         canvasContainer.appendChild(rowDiv)
-        container.appendChild(canvasContainer)
+        canvas_stand.appendChild(canvasContainer)
     }
     dimensionBackup = n
     colorSquares()
@@ -68,7 +68,7 @@ function userRequiredCanvasSize(){
 
 //To color the squares of canvas
 function colorSquares(){
-     const squareDivs = document.querySelectorAll('[class*="square-"]');
+    const squareDivs = document.querySelectorAll('[class*="square-"]');
 
     squareDivs.forEach((square) => {
         let isclicked = false;
