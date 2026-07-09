@@ -6,12 +6,17 @@
     margin: 0;
 }
 
-body{
+.room{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
     background-color: #CCA283;
+}
+.view-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     flex-direction: column;
 }
 
@@ -57,4 +62,8 @@ h1{
     background-color: #ffff;
     height: 16px;
     width: 16px;
+}
+
+.brush-properties{
+    margin-left: 25px;
 }
