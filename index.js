@@ -1,18 +1,24 @@
+
+//Get container = stand for canvas
 const container = document.querySelector(".container")
+
+// Get actual canvas
 const canvasContainer = document.createElement("div")
 canvasContainer.classList.add("working-canvas")
 
 
 //Button to generate canvas
-
 const button = document.createElement("button")
 button.addEventListener('click', userRequiredCanvasSize)
 button.innerText = "Generate Canvas";
 button.classList.add('generate-canvas')
-container.insertAdjacentElement("beforeend", button)
+container.append(button)
+
+
+//To check if canvas is created or not
+let isCanvasCreated = false
 
 //Default canvas
-let isCanvasCreated = false
 function defaultCanvas(){
     let n = 35;
     for(let i = 0; i<n; i++){
