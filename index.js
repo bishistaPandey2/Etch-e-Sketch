@@ -43,7 +43,12 @@ function userRequiredCanvasSize(){
     canvasContainer.innerHTML = ''
     
   
-    let n = prompt("enter dimension of canvas.")
+    let n = parseInt(prompt("Enter dimension of canvas."))
+    if(n > 100){
+        alert("Sorry canvas too big.")
+        defaultCanvas();
+        return;
+    }
     if(n==='' && !dimensionBackup){
         defaultCanvas()
     }
